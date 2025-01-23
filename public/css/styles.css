@@ -1,0 +1,86 @@
+.color1 {
+  color: #dfdfdf;
+}
+.color2 {
+  color: #c0c0c0;
+}
+.color3 {
+  color: #a0a0a0;
+}
+.color4 {
+  color: #808080;
+}
+.color5 {
+  color: #363636;
+}
+
+* {
+  font-family: "DM Sans", serif;
+  margin: 0;
+  padding: 0;
+}
+
+#logo {
+  text-decoration: none;
+  transition: 0.5s;
+  font-weight: bold;
+  font-size: 1.7em;
+  color: #000;
+  transition: 0.5s;
+}
+
+#logo:hover {
+  font-size: 2em;
+  color: #363636;
+}
+
+#navbar {
+  height: 2em;
+  padding: 1.2em 1.4em;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dfdfdf;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+#navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+#navbar ul li {
+  margin-left: 1em;
+}
+
+#navbar ul li a {
+  text-decoration: none;
+  transition: 0.5s;
+  font-weight: bold;
+  color: #000;
+}
+
+#navbar ul li a:hover {
+  color: #363636;
+  font-size: 1.2em;
+}
+
+.container {
+  min-height: 75vh;
+  padding: 2em;
+}
+
+footer {
+  background-color: #dfdfdf;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #c0c0c0;
+}
+
+footer span {
+  font-weight: bold;
+  font-size: 1.7em;
+}
