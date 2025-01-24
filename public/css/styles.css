@@ -84,3 +84,79 @@ footer span {
   font-weight: bold;
   font-size: 1.7em;
 }
+
+/* Messages */
+.message {
+  padding: 1em;
+  color: #dfdfdf;
+  background-color: #363636;
+  border-radius: 15px;
+  text-align: center;
+  margin: 0 auto 2em;
+  max-width: 60%;
+  font-weight: bold;
+}
+
+/* Login e Register */
+.auth-container {
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #dfdfdf;
+  padding: 1em 2em;
+  border-radius: 15px;
+}
+
+.auth-container h2 {
+  margin-bottom: 1me;
+  color: #363636;
+  border-left: 4px solid #363636;
+  padding: 0.3em;
+  width: 100px;
+}
+
+.auth-container a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #363636;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.form-control input,
+.form-control textarea {
+  padding: 1em;
+  border-radius: 15px;
+  border: none;
+}
+
+form input[type="submit"],
+.btn {
+  background-color: transparent;
+  color: #363636;
+  border: 2px solid #363636;
+  padding: 0.5em 1.2em;
+  margin-bottom: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+form input[type="submit"]:hover,
+.btn:hover {
+  background-color: #363636;
+  color: #dfdfdf;
+}
