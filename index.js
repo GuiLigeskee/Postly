@@ -9,7 +9,7 @@ const app = express();
 const conn = require("./db/conn");
 
 // Models
-const Post = require("./models/Post");
+const Postly = require("./models/Post");
 const User = require("./models/User");
 
 // Routes
@@ -74,6 +74,7 @@ app.use("/", authRoutes);
 app.get("/", PostlyController.showAllPosts);
 
 conn
+  // .sync({ force: true })
   .sync()
   .then(() => {
     app.listen(3000);

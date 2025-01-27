@@ -1,0 +1,24 @@
+<div class="postly-form-container">
+  <a href="/postly/dashboard">Voltar</a>
+  <h1>Editaar seu postly</h1>
+  <form action="/postly/edit" method="POST">
+    <div class="form-control">
+      <label for="title">Título:</label>
+      <input
+        type="text"
+        name="title"
+        placeholder="Digite o titulo do seu Postly"
+        value="{{postly.title}}"
+      />
+    </div>
+    <div class="form-control">
+      <label for="title">Conteúdo:</label>
+      <textarea
+        name="description"
+        placeholder="Digite o conteúdo do seu Postly"
+      >{{postly.description}}</textarea>
+    </div>
+    <input type="hidden" name="id" value="{{postly.id}}" />
+    <input type="submit" value="Criar" />
+  </form>
+</div>

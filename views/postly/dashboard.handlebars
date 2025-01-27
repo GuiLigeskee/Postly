@@ -1,0 +1,31 @@
+<div class="dashboard">
+  <div class="title-container">
+    <h2>Dashboard</h2>
+    <a href="/postly/add" class="btn">Criar um Postly</a>
+  </div>
+  <h3>Seus Postly`s</h3>
+  <ul>
+    {{#each posts}}
+      <li>
+        <div class="postly-card">
+          <div class="content">
+            <h2>{{this.title}}</h2>
+            <p>{{this.description}}</p>
+          </div>
+          <div class="actions">
+            <a href="/postly/edit/{{this.id}}" class="btn">Editar</a>
+            <form action="/postly/remove" method="POST">
+              <input type="hidden" name="id" value="{{this.id}}" />
+              <input type="submit" value="Excluir" class="btn" />
+            </form>
+          </div>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+  {{#if emptyPostlys}}
+    <p>Ainda não há nenhum postly criado, começe criando seus postlys
+      <a href="/postly/add">por aqui</a>
+    </p>
+  {{/if}}
+</div>

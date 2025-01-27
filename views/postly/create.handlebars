@@ -1,0 +1,22 @@
+<div class="postly-form-container">
+  <a href="/postly/dashboard">Voltar</a>
+  <h1>Criar um postly</h1>
+  <form action="/postly/add" method="POST">
+    <div class="form-control">
+      <label for="title">Título:</label>
+      <input
+        type="text"
+        name="title"
+        placeholder="Digite o titulo do seu Postly"
+      />
+    </div>
+    <div class="form-control">
+      <label for="title">Conteúdo:</label>
+      <textarea
+        name="description"
+        placeholder="Digite o conteúdo do seu Postly"
+      ></textarea>
+    </div>
+    <input type="submit" value="Criar" />
+  </form>
+</div>
