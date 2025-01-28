@@ -8,6 +8,8 @@ const app = express();
 
 const conn = require("./db/conn");
 
+const port = process.env.PORT || 3000;
+
 // Models
 const Postly = require("./models/Post");
 const User = require("./models/User");
@@ -33,7 +35,7 @@ app.use(
 app.use(express.json());
 
 // session middleware
-const sessionStore = new MemoryStore({
+const sessionStore = new (require("memorystore")(session))({
   checkPeriod: 86400000, // 24 horas
 });
 
@@ -45,8 +47,8 @@ app.use(
     saveUninitialized: false,
     store: sessionStore,
     cookie: {
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 3600000,
+      secure: process.env.NODE_ENV === "production", // Usando HTTPS em produção
+      maxAge: 3600000, // 1 hora
       httpOnly: true,
     },
   })
@@ -77,7 +79,9 @@ conn
   // .sync({ force: true })
   .sync()
   .then(() => {
-    app.listen(3000);
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
   })
   .catch((err) => {
     console.log(err);
