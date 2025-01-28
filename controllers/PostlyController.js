@@ -1,9 +1,41 @@
 const Post = require("../models/Post");
 const User = require("../models/User");
 
+const { Op } = require("sequelize");
+
 module.exports = class PostlyController {
   static async showAllPosts(req, res) {
-    res.render("postly/home");
+    let search = "";
+
+    if (req.query.search) {
+      search = req.query.search;
+    }
+
+    let order = "DESC";
+
+    if (req.query.order === "old") {
+      order = "ASC";
+    } else {
+      order = "DESC";
+    }
+
+    const postlysData = await Post.findAll({
+      include: User,
+      where: {
+        title: { [Op.like]: `%${search}%` },
+      },
+      order: [["createdAt", order]],
+    });
+
+    const postlys = postlysData.map((result) => result.get({ plain: true }));
+
+    let postlysQty = postlys.length;
+
+    if (postlysQty === 0) {
+      postlysQty = false;
+    }
+
+    res.render("postly/home", { postlys, search, postlysQty });
   }
 
   static async dashboard(req, res) {
@@ -22,15 +54,15 @@ module.exports = class PostlyController {
       res.redirect("/login");
     }
 
-    const posts = user.Posts.map((result) => result.dataValues);
+    const postlys = user.Posts.map((result) => result.dataValues);
 
     let emptyPostlys = false;
 
-    if (posts.length === 0) {
+    if (postlys.length === 0) {
       emptyPostlys = true;
     }
 
-    res.render("postly/dashboard", { posts });
+    res.render("postly/dashboard", { postlys });
   }
 
   static createPostly(req, res) {
