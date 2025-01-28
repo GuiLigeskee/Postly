@@ -1,7 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
-const FileStore = require("session-file-store")(session);
+const MemoryStore = require("memorystore")(session);
 const flash = require("express-flash");
 
 const app = express();
@@ -33,21 +33,21 @@ app.use(
 app.use(express.json());
 
 // session middleware
+const sessionStore = new MemoryStore({
+  checkPeriod: 86400000, // 24 horas
+});
+
 app.use(
   session({
     name: "session",
-    secret: "nosso-secret",
+    secret: process.env.SESSION_SECRET || "segredo-padrao",
     resave: false,
     saveUninitialized: false,
-    store: new FileStore({
-      logFn: function () {},
-      path: require("path").join(require("os").tmpdir(), "sessions"),
-    }),
+    store: sessionStore,
     cookie: {
-      secure: false,
-      maxAge: 360000,
-      expires: new Date(Date.now() + 360000),
-      httpOnly: true, // não funciona com https, teria que mudar a configuração
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 3600000,
+      httpOnly: true,
     },
   })
 );
