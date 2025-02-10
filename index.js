@@ -47,8 +47,8 @@ app.use(
     saveUninitialized: false,
     store: sessionStore,
     cookie: {
-      secure: process.env.NODE_ENV === "production", // Usando HTTPS em produção
-      maxAge: 3600000, // 1 hora
+      secure: false, // Teste sem HTTPS
+      maxAge: 3600000,
       httpOnly: true,
     },
   })
