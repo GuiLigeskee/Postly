@@ -285,8 +285,10 @@ form input[type="submit"]:hover,
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 80%;
-  margin: 0 auto 1em;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .order-container span {
@@ -294,26 +296,25 @@ form input[type="submit"]:hover,
   color: #363636;
 }
 
-.order-container form {
-  margin: 0;
-}
-
 .order-container button {
-  margin-bottom: 0;
+  background: none;
   border: none;
   cursor: pointer;
+  font-size: 18px;
+  color: #000;
+  transition: color 0.3s;
 }
 
 .order-container button:hover,
-.order-container a:hover,
-.order-container i:hover {
+.order-container a:hover {
   font-weight: bold;
 }
 
-.order-container button,
-.order-container a,
-.order-container i {
-  margin: 7px;
+.order-container a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #363636;
+  transition: color 0.3s;
 }
 
 .postlys-container figure {
