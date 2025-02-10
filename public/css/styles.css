@@ -340,3 +340,20 @@ form input[type="submit"]:hover,
   margin: 0 0 1em;
   letter-spacing: 1px;
 }
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .home-header {
+    max-width: 100%;
+    padding: 1em;
+  }
+
+  .order-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .postlys-container figure {
+    max-width: 100%;
+  }
+}
